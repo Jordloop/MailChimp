@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Signup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MailChimp.Models.Signup
+
+<ul>
+    <li>@Model.rel</li>
+    <li>@Model.href</li>
+</ul>
+
+@Html.ActionLink("home", "Index")

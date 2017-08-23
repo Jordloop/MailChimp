@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "GetMessages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model MailChimp.Models.CampaignDefaults
+<ul>
+    <li>@Model.from_name</li>
+    <li>@Model.from_email</li>
+    <li>@Model.subject</li>
+</ul>
+
+@Html.ActionLink("home", "Index")
