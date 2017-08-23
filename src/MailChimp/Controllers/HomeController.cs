@@ -24,5 +24,18 @@ namespace MailChimp.Controllers
             var form = Signup.ShowSignup();
             return View(form);
         }
+        public IActionResult Search()
+        {
+            ViewBag.Game = new List<Games>() { };
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Search(string userString)
+        {
+            var userGame = Games.FindGame(userString);
+            ViewBag.Game = userGame;
+            return View();
+        }
     }
 }

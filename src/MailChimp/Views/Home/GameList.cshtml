@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<MailChimp.Models.Games>
+
+@foreach (var Games in Model)
+{
+    <div>
+        <p>@Html.DisplayFor(n => Games.id)</p>
+    </div>
+}

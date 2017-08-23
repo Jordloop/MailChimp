@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MailChimp.Models.Games
+
+@using (Html.BeginForm())
+{
+    
+       <input type="text" name="userString"/>
+
+
+
+        <input type="submit" value="Create" />
+}
+
+
+
+        @Html.ActionLink("get messages", "GetMessages")
+        @Html.ActionLink("sign up", "ShowSignupForm")
+
+@if (@ViewBag.Game.Count > 0)
+{
+    @foreach(var game in @ViewBag.Game)
+    {
+        <p>@game.id</p>
+    }
+}
