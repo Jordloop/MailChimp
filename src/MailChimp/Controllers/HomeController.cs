@@ -34,7 +34,8 @@ namespace MailChimp.Controllers
         public IActionResult Search(string userString)
         {
             var userGame = Games.FindGame(userString);
-            ViewBag.Game = userGame;
+            var decoded = Games.DecodeFindGame(userGame);
+            ViewBag.Game = decoded;
             return View();
         }
     }

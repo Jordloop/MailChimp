@@ -19,10 +19,14 @@
         @Html.ActionLink("get messages", "GetMessages")
         @Html.ActionLink("sign up", "ShowSignupForm")
 
+
 @if (@ViewBag.Game.Count > 0)
 {
-    @foreach(var game in @ViewBag.Game)
+    @foreach (var game in @ViewBag.Game)
     {
-        <p>@game.id</p>
+        <p>Name: @game.name</p>
+        <p>Summary: @game.summary</p>
+        <p>Rating: @game.rating</p>
+        <hr />
     }
 }
