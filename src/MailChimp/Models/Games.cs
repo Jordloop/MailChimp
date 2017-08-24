@@ -15,21 +15,27 @@ namespace MailChimp.Models
         public string name { get; set; }
         public string summary { get; set; }
         public string rating { get; set; }
+        public virtual List<screenshot> screenshots { get; set; }
       
       
         public static List<Games> FindGame(string userString)
-        {
+        {     
+            //Who we are requesting from       
             var client = new RestClient("https://api-2445582011268.apicast.io/");
+            //What we are requesting
             var request = new RestRequest("games/?search=" + userString, Method.GET);
+            //API "Username" and "Password"
             client.Authenticator = new HttpBasicAuthenticator("user-key", EnvironmentVariables.UserKey);
+            //API call Header
             request.AddHeader("user-key", EnvironmentVariables.UserKey);
-            //request.AddHeader("Accept", "application/json");
+            //Response from API call
             var response = new RestResponse();
             Task.Run(async () =>
             {
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(response.Content);
+
             var gameInfo = JsonConvert.DeserializeObject<List<Games>>(jsonResponse.ToString());
 
             List<Games> searchResults = new List<Games>();

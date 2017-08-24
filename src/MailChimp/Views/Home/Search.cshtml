@@ -27,6 +27,14 @@
         <p>Name: @game.name</p>
         <p>Summary: @game.summary</p>
         <p>Rating: @game.rating</p>
-        <hr />
+
+        @if (@game.screenshots != null)
+        {
+            @foreach (var image in @game.screenshots)
+            {
+                <img src="@image.url" />
+            }
+        }
+     <hr />
     }
 }
